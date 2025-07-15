@@ -1,6 +1,3 @@
-import { useContext } from "react";
-import { GuestContext } from "../contexts/GuestContext";
-
 export default class TrySelectGuest {
   #guestRepo;
   constructor({ guestRepo }) {

@@ -56,9 +56,6 @@ export default function GuestProvider({ children }) {
         selectedId,
         setSelectedId,
         repo,
-        // useGuestList,
-        // useGuestId,
-        // useSelectedGuest,
       }}
     >
       {children}

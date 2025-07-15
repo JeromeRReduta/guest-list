@@ -9,5 +9,5 @@ export default function useGuestList() {
       setGuestList(data);
     }
     loadGuestList();
-  });
+  }, []);
 }

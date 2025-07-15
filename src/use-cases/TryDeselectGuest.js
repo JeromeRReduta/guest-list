@@ -1,7 +1,4 @@
-import { useContext } from "react";
-import { GuestContext } from "../contexts/GuestContext";
-
-export default class TryUnselectGuest {
+export default class TryDeselectGuest {
   constructor() {}
 
   handle() {

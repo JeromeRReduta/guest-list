@@ -1,6 +1,7 @@
-import WebApiDbContext from "./apis/WebApiDbContext";
+import { useContext } from "react";
 import GuestList from "./components/GuestList";
-import GuestProvider from "./contexts/GuestContext";
+import { GuestContext } from "./contexts/GuestContext";
+import GuestDetails from "./components/GuestDetails";
 
 /**
  * @typedef {Object} Guest
@@ -13,11 +14,6 @@ import GuestProvider from "./contexts/GuestContext";
  */
 
 export default function App() {
-  return (
-    <>
-      <GuestProvider>
-        <GuestList />
-      </GuestProvider>
-    </>
-  );
+  const { selectedGuest } = useContext(GuestContext);
+  return selectedGuest ? <GuestDetails /> : <GuestList />;
 }
