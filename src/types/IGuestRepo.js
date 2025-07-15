@@ -2,6 +2,8 @@
  * Intended as reference for implementations - NOT INTENDED FOR USE.
  */
 class IGuestRepo {
+  #dbContext;
+
   constructor({ dbContext }) {}
   getGuests() {}
 

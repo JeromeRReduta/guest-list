@@ -8,7 +8,7 @@
  * @property {string} job
  */
 
-function createGuest({ id, name, email, phone, bio, job }) {
+export function createGuest({ id, name, email, phone, bio, job }) {
   return {
     id: id,
     name: name,
