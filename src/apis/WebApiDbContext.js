@@ -1,4 +1,4 @@
-export default class WebApiContext {
+export default class WebApiDbContext {
   #url;
 
   constructor({ url }) {
@@ -7,6 +7,7 @@ export default class WebApiContext {
 
   async get(endpoint = "") {
     const response = await fetch(`${this.#url}/${endpoint}`);
+    console.log("URL IS:", this.#url, endpoint);
     if (!response.ok) {
       throw new Error("Error with GET request");
     }

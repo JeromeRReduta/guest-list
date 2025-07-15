@@ -1,5 +1,6 @@
-import WebApiContext from "./apis/WebApiContext";
-import GuestApiRepo from "./repo-implementations/GuestApiRepo";
+import WebApiDbContext from "./apis/WebApiDbContext";
+import GuestList from "./components/GuestList";
+import GuestProvider from "./contexts/GuestContext";
 
 /**
  * @typedef {Object} Guest
@@ -11,25 +12,12 @@ import GuestApiRepo from "./repo-implementations/GuestApiRepo";
  * @property {string} job
  */
 
-const apiBase =
-  "https://fsa-crud-2aa9294fe819.herokuapp.com/api/2504-ftb-et-web-pt";
-
 export default function App() {
-  const func = async () => {
-    await test();
-  };
-  func();
   return (
     <>
-      <div>aah</div>
+      <GuestProvider>
+        <GuestList />
+      </GuestProvider>
     </>
   );
-}
-
-async function test() {
-  const api = new WebApiContext({ url: apiBase });
-  const repo = new GuestApiRepo({ api: api });
-  console.log("aaaaaah");
-  console.log(await repo.getGuests());
-  console.log(await repo.getGuestById(4829));
 }
