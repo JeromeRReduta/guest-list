@@ -2,17 +2,17 @@ const guestEndpoint = "guests";
 
 export default class GuestApiRepo {
   /** @type {WebApiContext}*/
-  #apiBase;
+  #api;
 
   constructor({ api }) {
-    this.#apiBase = api;
+    this.#api = api;
   }
 
   async getGuests() {
-    const response = await this.#apiBase.get(guestEndpoint);
+    return await this.#api.get(guestEndpoint);
   }
 
   async getGuestById(id) {
-    return await this.#apiBase.getGuestById(`${guestEndpoint}/${id}`);
+    return await this.#api.get(`${guestEndpoint}/${id}`);
   }
 }

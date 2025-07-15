@@ -1,4 +1,5 @@
 import WebApiContext from "./apis/WebApiContext";
+import GuestApiRepo from "./repo-implementations/GuestApiRepo";
 
 /**
  * @typedef {Object} Guest
@@ -27,6 +28,8 @@ export default function App() {
 
 async function test() {
   const api = new WebApiContext({ url: apiBase });
-  console.log(await api.get("guests"));
-  console.log(await api.get("guests/4829"));
+  const repo = new GuestApiRepo({ api: api });
+  console.log("aaaaaah");
+  console.log(await repo.getGuests());
+  console.log(await repo.getGuestById(4829));
 }
