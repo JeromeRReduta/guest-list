@@ -1,3 +1,5 @@
+import { createGuest } from "../types/Guest";
+
 const guestEndpoint = "guests";
 
 export default class GuestApiRepo {
@@ -8,11 +10,24 @@ export default class GuestApiRepo {
     this.#api = api;
   }
 
+  #mapJsonToGuest(json) {
+    return createGuest({
+      id: json.id,
+      name: json.name,
+      email: json.email,
+      phone: json.phone,
+      bio: json.bio,
+      job: json.job,
+    });
+  }
+
   async getGuests() {
-    return await this.#api.get(guestEndpoint);
+    const json = await this.#api.get(guestEndpoint);
+    return Array.from(json, this.#mapJsonToGuest);
   }
 
   async getGuestById(id) {
-    return await this.#api.get(`${guestEndpoint}/${id}`);
+    const json = await this.#api.get(`${guestEndpoint}/${id}`);
+    return this.#mapJsonToGuest(json);
   }
 }
